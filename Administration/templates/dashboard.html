@@ -1,0 +1,115 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+
+<!-- Full-page unique background -->
+<div class="min-h-screen bg-gradient-to-br from-blue-200 via-purple-300 to-pink-200 flex flex-col items-center justify-center p-10">
+
+    <!-- Header -->
+<div class="w-full max-w-6xl mb-12 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-indigo-600 p-6 rounded-lg shadow-lg text-white">
+    
+    <!-- Icon -->
+    <div class="mr-4 flex-shrink-0">
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4z"></path>
+            <path d="M6 20v-2a6 6 0 0 1 12 0v2"></path>
+        </svg>
+    </div>
+
+    <!-- Text -->
+    <div class="text-left">
+        <h1 class="text-3xl font-bold">
+            ADMIN DASHBOARD
+        </h1>
+        <p class="mt-1 text-white/90">
+            Welcome back, <strong>{{ request.user.username }}</strong>. 
+            Here is the current system overview.
+        </p>
+        <div class="w-16 h-1 bg-white mt-3 rounded"></div>
+    </div>
+
+</div>
+
+    <!-- Statistics Cards -->
+    <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Total Users Card -->
+        <div class="bg-gradient-to-r from-indigo-400 to-indigo-600 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center text-white">
+            <div class="flex justify-center mb-4">
+                <!-- User Icon -->
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-8 0v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <h2 class="text-sm font-semibold uppercase tracking-wide">
+                Total Users
+            </h2>
+            <p class="text-3xl font-bold mt-3">
+                {{ total_users }}
+            </p>
+        </div>
+
+        <!-- Administrators Card -->
+        <div class="bg-gradient-to-r from-red-400 to-red-600 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center text-white">
+            <div class="flex justify-center mb-4">
+                <!-- Admin Icon -->
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4z"></path>
+                    <path d="M6 20v-2a6 6 0 0 1 12 0v2"></path>
+                </svg>
+            </div>
+            <h2 class="text-sm font-semibold uppercase tracking-wide">
+                Administrators
+            </h2>
+            <p class="text-3xl font-bold mt-3">
+                {{ total_admins }}
+            </p>
+        </div>
+
+        <!-- Teachers Card -->
+        <div class="bg-gradient-to-r from-green-400 to-green-600 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center text-white">
+            <div class="flex justify-center mb-4">
+                <!-- Teacher Icon -->
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+            </div>
+            <h2 class="text-sm font-semibold uppercase tracking-wide">
+                Teachers
+            </h2>
+            <p class="text-3xl font-bold mt-3">
+                {{ total_teachers }}
+            </p>
+        </div>
+
+        <!-- Students Card -->
+        <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center text-white">
+            <div class="flex justify-center mb-4">
+                <!-- Student Icon -->
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                    <path d="M12 14l6.16-3.422A12 12 0 0 1 18 20H6a12 12 0 0 1-.16-9.422L12 14z"></path>
+                    <path d="M12 14v7"></path>
+                </svg>
+            </div>
+            <h2 class="text-sm font-semibold uppercase tracking-wide">
+                Students
+            </h2>
+            <p class="text-3xl font-bold mt-3">
+                {{ total_students }}
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer Note -->
+    <div class="w-full max-w-6xl mt-12 text-center text-sm text-gray-700">
+        System data updates automatically based on registered user roles.
+    </div>
+
+</div>
+
+{% endblock %}
